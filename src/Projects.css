@@ -1,0 +1,353 @@
+.projects{
+  display:flex;
+  align-items:center;
+  min-height:100vh;
+  transition:.3s ease !important;
+  backdrop-filter: blur(10px);
+}
+
+.projects__background{
+  width:100%;
+  height:100%;
+  position:absolute;
+  z-index:5;
+  filter:blur(10px) brightness(50%);
+  transition: .3s ease;
+}
+
+.projects__container{
+  display:grid;
+  place-items: center;
+  width:100%;
+}
+
+.projects__container > h2 {
+  color:white;
+  font-weight:400;
+  font-size:1.5rem;
+  margin-bottom:5px;
+  z-index:15;
+  text-shadow: 3px 4px 5px rgba(0,0,0,0.57);
+  transform:translateY(-50px);
+  border-bottom:3px solid #11ABB0;
+  padding-bottom:5px;
+}
+
+.projects__container > h3 {
+  color:white;
+  font-weight:200;
+  font-size:0.85rem;
+  margin-bottom:30px;
+  z-index:15;
+  text-shadow: 3px 4px 5px rgba(0,0,0,0.57);
+  transform:translateY(-50px)
+}
+
+.projects__all {
+  position:relative;
+  width:983px;
+  height:500px;
+  background: #222;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow: 3px 4px 5px 0px rgba(0,0,0,0.57);
+  z-index:10;
+  transform: scale(1.2);
+}
+
+.projects__all .clip {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  transition: 0.5s;
+}
+
+.projects__all .clip.clip1 {
+  clip-path: polygon(55.7% 42%, 100% 100%, 100% 100%, 18% 100%);
+}
+
+.projects__all .clip.clip2 {
+  clip-path: polygon(40% 0, 83% 0, 18% 100%, 4% 100%);
+}
+
+.projects__all .clip.clip3 {
+  clip-path: polygon(0 0, 40% 0, 4% 100%, 0 100%);
+}
+.projects__all .clip.clip4 {
+  clip-path: polygon(83% 0, 100% 0, 100% 100%, 55% 43%);
+}
+
+.projects__all:hover .clip {
+  clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%)
+}
+
+.projects__all .clip:hover {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%)
+}
+
+.projects__all .clip:hover > p{
+  bottom:20px;
+}
+
+.projects__all .clip.clip1:hover {
+  z-index:1004;
+}
+
+.projects__all .clip.clip2:hover {
+  z-index:1003;
+}
+
+.projects__all .clip.clip3:hover {
+  z-index:1000;
+}
+
+.projects__all .clip.clip4:hover {
+  z-index:1000;
+}
+
+.clip{
+  position:relative;
+}
+
+.clip > p {
+  color:white;
+  position:absolute;
+  left:20px;
+  bottom:-100px;
+  text-align:center;
+  font-size:1.1rem;
+  width:96%;
+  background-color:rgba(34, 34, 34, 0.9);
+  padding:30px 20px;
+  border-radius:15px;
+  box-shadow: 4px 4px 10px 0px rgba(0,0,0,0.75);
+  transition:all .5s ease-in-out;
+}
+
+.clip > .projects__mobileInfo{
+  display:none;
+}
+
+/* for projects section */
+@media only screen and (max-width: 1200px){
+  .projects__container{
+    display:grid;
+    place-items: center;
+    width:100%;
+  }
+
+  .projects__background{
+    display:none;
+  }
+
+  .projects__container > h2 {
+    transform:translateY(0px)
+  }
+  
+  .projects__container > h3 {
+    transform:translateY(0px)
+  }
+  
+  .projects__all {
+    transform: scale(1);
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    grid-gap:20px;
+    overflow: visible;
+    width:auto;
+    height:auto;
+    background: none;
+    border-radius:0px;
+    box-shadow: none;
+  }
+
+  .projects__all .clip {
+    position:relative;
+    top:auto;
+    left:auto;
+    width:auto;
+    height:auto;
+    transition: 0s;
+    object-fit: contain;
+    height:220px;
+  }
+
+  .projects__all .clip.clip1 {
+    clip-path: none;
+  }
+  
+  .projects__all .clip.clip2 {
+    clip-path: none;
+  }
+  
+  .projects__all .clip.clip3 {
+    clip-path: none;
+  }
+  .projects__all .clip.clip4 {
+    clip-path: none;
+  }
+  
+  .projects__all:hover .clip {
+    clip-path: none;
+  }
+  
+  .projects__all .clip:hover {
+    clip-path: none;
+  }
+
+  .projects__all .clip.clip1:hover {
+    z-index:1;
+  }
+  
+  .projects__all .clip.clip2:hover {
+    z-index:1;
+  }
+  
+  .projects__all .clip.clip3:hover {
+    z-index:1;
+  }
+  
+  .projects__all .clip.clip4:hover {
+    z-index:1;
+  }
+
+  .clip > p {
+    color:white;
+    position:absolute;
+    left:0px;
+    bottom:0px;
+    text-align:center;
+    font-size:1.1rem;
+    width:100%;
+    height:100%;
+    background-color:rgba(34, 34, 34, 0);
+    padding:30px 20px;
+    border-radius:0px;
+    box-shadow: none;
+    transition:all .3s ease-in-out; 
+    pointer-events:none;
+    opacity:0;
+    border-radius:9px;   
+    display:flex;
+    align-items:center;
+  }
+
+  .projects__all .clip:hover > p{
+    bottom:0px;
+    background-color:rgba(34, 34, 34, 0.95);
+    opacity:1;
+  }
+}
+
+/* for the rest */
+@media only screen and (max-width: 1100px){
+  
+}
+
+@media only screen and (max-width: 992px){
+  .projects{
+    padding:100px 0px;
+  }
+
+  .projects__container > h2 {
+    margin-bottom:30px;
+    padding: 0px 20px 10px;
+    max-width: 325px;
+    text-align:center;
+    transform:translateY(-20px)
+  }
+  
+  .projects__container > h3 {
+    margin-bottom:30px;
+    padding: 0 20px;
+    max-width:400px;
+    text-align:center;
+    transform:translateY(-20px)
+  }
+
+  .projects__all {
+    grid-template-columns:1fr;
+    grid-gap:20px;
+  }
+}
+
+@media only screen and (max-width: 414px){
+  .projects{
+    padding:100px 0px 50px;
+  }
+
+  .projects__container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction:column;
+  }
+
+  .projects__container > img{
+    object-fit: cover;
+    object-position: center center;
+    height: 100%;
+    width: 90%;
+    transition: all .3s ease-in-out;
+    border-radius: 10px;
+  }
+
+  .projects__container > h2 {
+    margin-bottom:30px;
+    padding: 0;
+    width: 75%;
+    text-align:center;
+    transform:translateY(-20px)
+  }
+  
+  .projects__container > h3 {
+    display:none;
+  }
+
+  .projects__all {
+    display:flex;
+    flex-direction:column;
+    grid-gap:0;
+  }
+
+  .clip{
+    height:100%;
+  }
+
+  .clip.clip1{
+    height:100%;
+  }
+
+  .clip.clip2{
+    height:100%;
+  }
+
+  .clip.clip3{
+    height:100%;
+  }
+
+  .clip.clip4{
+    height:100%;
+  }
+
+  .clip > p {
+    display:none;
+  }
+
+  .clip > .projects__mobileInfo{
+    display:flex;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+
+  .clip > .projects__mobileInfo > p{
+    text-align:center;
+    color:white;
+    font-size:.95rem;
+    font-weight:400;
+    width: 90%;
+  }
+}
