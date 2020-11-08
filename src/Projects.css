@@ -64,7 +64,7 @@
   transition: 0.5s;
 }
 
-.projects__all .clip.clip1 {
+/* .projects__all .clip.clip1 {
   clip-path: polygon(55.7% 42%, 100% 100%, 100% 100%, 18% 100%);
 }
 
@@ -75,16 +75,37 @@
 .projects__all .clip.clip3 {
   clip-path: polygon(0 0, 40% 0, 4% 100%, 0 100%);
 }
+
 .projects__all .clip.clip4 {
   clip-path: polygon(83% 0, 100% 0, 100% 100%, 55% 43%);
-}
+} */
 
 .projects__all:hover .clip {
-  clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%)
+  clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%) !important;
 }
 
 .projects__all .clip:hover {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%)
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%) !important;
+}
+
+.projects__all .clip.clip1 {
+  clip-path: polygon(0% 0, 22% 0, 12% 100%, 0 100%);
+}
+
+.projects__all .clip.clip4 {
+  clip-path: polygon(22% 0, 43% 0, 33% 100%, 12% 100%);
+}
+
+.projects__all .clip.clip2 {
+  clip-path: polygon(43% 0, 64% 0, 54% 100%, 33% 100%);
+}
+
+.projects__all .clip.clip3 {
+  clip-path: polygon(64% 0, 85% 0, 75% 100%, 54% 100%);
+}
+
+.projects__all .clip.clip5 {
+  clip-path: polygon(85% 0, 100% 0, 100% 100%, 75% 100%);
 }
 
 .projects__all .clip:hover > p{
@@ -186,6 +207,10 @@
     clip-path: none;
   }
   .projects__all .clip.clip4 {
+    clip-path: none;
+  }
+
+  .projects__all .clip.clip5 {
     clip-path: none;
   }
   
