@@ -105,4 +105,8 @@
     transition: all .3s ease-in-out;
     border-radius:10px;
   }
+
+  .otherWorks__mobileInfo > p {
+    font-size:.85rem;
+  }
 }

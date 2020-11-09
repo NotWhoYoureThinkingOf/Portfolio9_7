@@ -105,6 +105,10 @@
     padding-left: 0;
   }
 
+  .aboutMe__infoTop > p {
+    font-size:.85rem;
+  }
+
   .aboutMe__infoBottom > a {
     width: 200px;
     text-align: center;

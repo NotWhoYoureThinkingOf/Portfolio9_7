@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Projects.css";
 import { motion } from "framer-motion";
 import Project from "./Project";
@@ -9,30 +9,57 @@ import slack from "./assets/slack-clone.PNG";
 import whatsapp from "./assets/whatsapp-clone.PNG";
 
 function Projects() {
+  const [hovered, setHovered] = useState(false);
+  const [background, setBackground] = useState("");
+
   const projectBackground = (e) => {
     const projects = document.querySelector(".projects__background");
     const parent = e.target.parentNode.parentNode.parentNode;
+    // if (parent.classList.contains("slack")) {
+    //   projects.style.backgroundImage = `url(${slack})`;
+    // } else if (parent.classList.contains("netflix")) {
+    //   projects.style.backgroundImage = `url(${netflix})`;
+    // } else if (parent.classList.contains("facebook")) {
+    //   projects.style.backgroundImage = `url(${facebook})`;
+    // } else if (parent.classList.contains("whatsapp")) {
+    //   projects.style.backgroundImage = `url(${whatsapp})`;
+    // } else if (parent.classList.contains("ecommerce")) {
+    //   projects.style.backgroundImage = `url(${ecommerce})`;
+    // }
     if (parent.classList.contains("slack")) {
-      projects.style.backgroundImage = `url(${slack})`;
+      setBackground(`url(${slack})`);
     } else if (parent.classList.contains("netflix")) {
-      projects.style.backgroundImage = `url(${netflix})`;
+      setBackground(`url(${netflix})`);
     } else if (parent.classList.contains("facebook")) {
-      projects.style.backgroundImage = `url(${facebook})`;
+      setBackground(`url(${facebook})`);
     } else if (parent.classList.contains("whatsapp")) {
-      projects.style.backgroundImage = `url(${whatsapp})`;
+      setBackground(`url(${whatsapp})`);
     } else if (parent.classList.contains("ecommerce")) {
-      projects.style.backgroundImage = `url(${ecommerce})`;
+      setBackground(`url(${ecommerce})`);
     }
+
+    setHovered(true);
   };
 
   const backgroundReset = () => {
     const projects = document.querySelector(".projects__background");
     projects.style.background = "none";
+    setHovered(false);
+  };
+
+  const transitions = {
+    duration: "0.2",
   };
 
   return (
     <div className="projects" id="projects">
-      <div className="projects__background"></div>
+      <motion.div
+        className="projects__background"
+        initial={{ backgroundImage: "" }}
+        animate={{ backgroundImage: background }}
+        exit={{ backgroundImage: "" }}
+        transition={transitions}
+      ></motion.div>
       <div className="projects__container">
         <h2 className="projects__work">CHECK OUT SOME OF MY REACT WORK</h2>
         <h3>
@@ -41,7 +68,7 @@ function Projects() {
         </h3>
         <div className="projects__all">
           <div
-            className="clip clip1 twitter"
+            className="clip clip1 slack"
             onMouseEnter={projectBackground}
             onMouseLeave={backgroundReset}
           >
@@ -49,9 +76,14 @@ function Projects() {
               image={slack}
               link="https://slack-clone-c936b.firebaseapp.com/room/45NU0001UTOxF2mR6If2"
               title="Slack Clone"
-              desc="A clone of the popular social media platform Twitter"
+              desc="A clone of messaging platform Slack"
             />
-            <p>A clone of messaging platform Slack</p>
+            <div className="project__info">
+              <p>A clone of messaging platform Slack</p>
+              <a href="https://github.com/NotWhoYoureThinkingOf/slack-clone">
+                Check out the code here
+              </a>
+            </div>
             <div className="projects__mobileInfo">
               <p>A clone of messaging platform Slack</p>
             </div>
@@ -67,7 +99,9 @@ function Projects() {
               title="Netflix Clone"
               desc="A clone of the popular streaming platform Netflix"
             />
-            <p>A clone of streaming platform Netflix</p>
+            <div className="project__info">
+              <p>A clone of streaming platform Netflix</p>
+            </div>
             <div className="projects__mobileInfo">
               <p>A clone of streaming platform Netflix</p>
             </div>
@@ -81,9 +115,14 @@ function Projects() {
               image={facebook}
               link="https://facebook-clone-955e6.firebaseapp.com/"
               title="Facebook Clone"
-              desc="A clone of the popular social media platform Facebook"
+              desc="A clone of social media platform Facebook"
             />
-            <p>A clone of social media platform Facebook</p>
+            <div className="project__info">
+              <p>A clone of messaging platform Facebook</p>
+              <a href="https://github.com/NotWhoYoureThinkingOf/fb-clone">
+                Check out the code here
+              </a>
+            </div>
             <div className="projects__mobileInfo">
               <p>A clone of social media platform Facebook</p>
             </div>
@@ -99,7 +138,12 @@ function Projects() {
               title="WhatsApp Clone"
               desc="A clone of the popular social media platform WhatsApp"
             />
-            <p>A clone of messaging app WhatsApp</p>
+            <div className="project__info">
+              <p>A clone of messaging platform Facebook</p>
+              <a href="https://github.com/NotWhoYoureThinkingOf/whatsapp-clone">
+                Check out the code here
+              </a>
+            </div>
             <div className="projects__mobileInfo">
               <p>A clone of messaging app WhatsApp</p>
             </div>
@@ -112,12 +156,87 @@ function Projects() {
             <Project
               image={ecommerce}
               link="https://ecommerce-store-25bd7.firebaseapp.com/"
-              title="Ecommerce Store"
+              title="Ecommerce Website"
               desc="An ecommerce gaming news and shop website"
             />
-            <p>An ecommerce gaming news and shop website</p>
+            <div className="project__info">
+              <p>An ecommerce gaming news and shop website</p>
+              <a href="https://github.com/NotWhoYoureThinkingOf/ecommerce-store">
+                Check out the code here
+              </a>
+            </div>
             <div className="projects__mobileInfo">
               <p>An ecommerce gaming news and shop website</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="projects__allMobile">
+          <div className="projects__projectMobile">
+            <Project
+              image={ecommerce}
+              link="https://ecommerce-store-25bd7.firebaseapp.com/"
+              title="Ecommerce Website"
+              desc="An ecommerce gaming news and shop website"
+            />
+            <div className="project__mobileinfo">
+              <p>An ecommerce gaming news and shop website</p>
+              <a href="https://github.com/NotWhoYoureThinkingOf/ecommerce-store">
+                Check out the code here
+              </a>
+            </div>
+          </div>
+          <div className="projects__projectMobile">
+            <Project
+              image={netflix}
+              link="https://netflix-clone-7387f.firebaseapp.com/"
+              title="Netflix Clone"
+              desc="A clone of streaming platform Netflix"
+            />
+            <div className="project__mobileinfo">
+              <p>A clone of streaming platform Netflix</p>
+            </div>
+          </div>
+          <div className="projects__projectMobile">
+            <Project
+              image={facebook}
+              link="https://facebook-clone-955e6.firebaseapp.com/"
+              title="Facebook Clone"
+              desc="A clone of social media platform Facebook"
+            />
+            <div className="project__mobileinfo">
+              <p>A clone of social media platform Facebook</p>
+              <a href="https://github.com/NotWhoYoureThinkingOf/fb-clone">
+                Check out the code here
+              </a>
+            </div>
+          </div>
+          <div className="projects__projectMobile">
+            <Project
+              image={whatsapp}
+              link="https://whatsapp-clone-c2061.firebaseapp.com/"
+              title="Whatsapp Clone"
+              desc="A clone of messaging app Whatsapp"
+            />
+            <div className="project__mobileinfo">
+              <p>A clone of messaging app Whatsapp</p>
+              <a href="https://github.com/NotWhoYoureThinkingOf/whatsapp-clone">
+                Check out the code here
+              </a>
+            </div>
+          </div>
+          <div className="projects__projectMobile">
+            <Project
+              image={slack}
+              link="https://slack-clone-c936b.firebaseapp.com/room/45NU0001UTOxF2mR6If2"
+              title="Slack Clone"
+              desc="A clone of messaging platform Slack"
+            />
+            <div className="project__mobileinfo">
+              <p>A clone of messaging platform Slack</p>
+              <a href="https://github.com/NotWhoYoureThinkingOf/slack-clone">
+                Check out the code here
+              </a>
             </div>
           </div>
         </div>

@@ -1,42 +1,39 @@
-import React, {useEffect} from 'react'
-import './Header.css'
+import React, { useEffect } from "react";
+import "./Header.css";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 function Header() {
-
   useEffect(() => {
-    gsap.to("#header",
-      {
+    gsap.to("#header", {
       scrollTrigger: {
         trigger: "#projects",
         start: "top bottom",
-        end:"top bottom-=200",
-        scrub:true
+        end: "top bottom-=200",
+        scrub: true,
       },
-      opacity:0,
-    })
-  }, [])
+      opacity: 1,
+    });
+  }, []);
 
   useEffect(() => {
-    gsap.to("#header",
-      {
+    gsap.to("#header", {
       scrollTrigger: {
-        trigger: "#otherWorks",
-        start: "top bottom",
-        end:"center bottom",
-        scrub:true
+        trigger: "#banner",
+        start: "top 0",
+        end: "bottom center",
+        scrub: true,
       },
-      opacity:1,
+      opacity: 1,
       background: "#222",
-      boxShadow: "0px 3px 5px 0px rgba(0,0,0,0.75)"
-    })
-  }, [])
+      boxShadow: "0px 3px 5px 0px rgba(0,0,0,0.75)",
+    });
+  }, []);
 
   // useEffect(() => {
-  //   // gsap.to(".projects", 
+  //   // gsap.to(".projects",
   //   // {
   //   //   yPercent: 50,
   //   //   scrollTrigger: {
@@ -53,7 +50,7 @@ function Header() {
       <a href="#aboutMe">ABOUT ME</a>
       <a href="#contactForm">CONTACT</a>
     </div>
-  )
+  );
 }
 
-export default Header
+export default Header;
